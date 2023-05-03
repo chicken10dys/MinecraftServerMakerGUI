@@ -30,6 +30,11 @@ class MainWindow(QMainWindow):
 
         self.ui.progressBar.setValue(0)
 
+        # Get latest info on available servers
+        response = requests.get("https://api.papermc.io/v2/projects/paper")
+        data = response.json()
+        versions = data["versions"]
+        self.ui.mcVersionDrop.addItems(versions)
 
 
 
@@ -53,6 +58,9 @@ class MainWindow(QMainWindow):
     def create_server(self):
         print("Create started")
 
+        version = self.ui.mcVersionDrop.currentText()
+        print(version)
+
         self.ui.progressBar.setValue(10)
 
         # Get latest info on available servers
@@ -60,12 +68,12 @@ class MainWindow(QMainWindow):
         data = response.json()
         latestVersion = data["versions"][-1]
         self.ui.progressBar.setValue(20)
-        response = requests.get("https://api.papermc.io/v2/projects/paper/versions/" + latestVersion)
+        response = requests.get("https://api.papermc.io/v2/projects/paper/versions/" + version)
         data = response.json()
         latestBuild = data["builds"][-1]
         self.ui.progressBar.setValue(30)
-        response = requests.get("https://api.papermc.io/v2/projects/paper/versions/" + latestVersion + "/builds/" + str(
-            latestBuild) + "/downloads/paper-" + latestVersion + "-" + str(latestBuild) + ".jar")
+        response = requests.get("https://api.papermc.io/v2/projects/paper/versions/" + version + "/builds/" + str(
+            latestBuild) + "/downloads/paper-" + version + "-" + str(latestBuild) + ".jar")
         self.ui.progressBar.setValue(40)
         # Download the server
         with open("server.jar", "wb") as f:
