@@ -31,7 +31,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.formLayoutWidget = QWidget(self.centralwidget)
         self.formLayoutWidget.setObjectName(u"formLayoutWidget")
-        self.formLayoutWidget.setGeometry(QRect(0, 0, 301, 181))
+        self.formLayoutWidget.setGeometry(QRect(0, 0, 301, 191))
         self.formLayout = QFormLayout(self.formLayoutWidget)
         self.formLayout.setObjectName(u"formLayout")
         self.formLayout.setContentsMargins(0, 0, 0, 0)
@@ -86,6 +86,7 @@ class Ui_MainWindow(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.mcVersionTxt.sizePolicy().hasHeightForWidth())
         self.mcVersionTxt.setSizePolicy(sizePolicy2)
+        self.mcVersionTxt.setReadOnly(True)
 
         self.formLayout.setWidget(1, QFormLayout.LabelRole, self.mcVersionTxt)
 
@@ -93,6 +94,7 @@ class Ui_MainWindow(object):
         self.ramTxt.setObjectName(u"ramTxt")
         sizePolicy2.setHeightForWidth(self.ramTxt.sizePolicy().hasHeightForWidth())
         self.ramTxt.setSizePolicy(sizePolicy2)
+        self.ramTxt.setReadOnly(True)
 
         self.formLayout.setWidget(2, QFormLayout.LabelRole, self.ramTxt)
 
