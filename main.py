@@ -56,6 +56,8 @@ class MainWindow(QMainWindow):
 
     def on_create_clicked(self):
         print("create clicked")
+        if (self.ui.crossplayBtn.isChecked() == True):
+            print("Crossplay enabled")
         if (self.ui.eulaBtn.isChecked() == True):
             print("EULA accepted")
             if (self.ui.browseTxt.toPlainText() != ''):
@@ -115,7 +117,20 @@ class MainWindow(QMainWindow):
         # Download the server
         with open("server.jar", "wb") as f:
             f.write(response.content)
-            print("Minecraft server files downloaded!")
+        print("Server: file 1/1 downloaded")
+        if (self.ui.crossplayBtn.isChecked() == True): # If the user wants crossplay then download the required plugins
+            response = requests.get("https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot")
+            os.mkdir("plugins") # Make plugins directory
+            with open("plugins/Geyser-Spigot.jar", "wb") as f: # Open new file for writing
+                f.write(response.content)
+            print("Crossplay: file 1/2 downloaded")
+            self.ui.progressBar.setValue(50)
+            response = requests.get("https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot")
+            with open("plugins/floodgate-Spigot.jar", "wb") as f:
+                f.write(response.content)
+            print("Crossplay: file 2/2 downloaded")
+            self.ui.progressBar.setValue(60)
+
         self.ui.progressBar.setValue(70)
         with open("eula.txt", "w") as f:
             f.write(

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.0
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QHBoxLayout,
-    QLayout, QMainWindow, QMenuBar, QPlainTextEdit,
-    QProgressBar, QPushButton, QRadioButton, QSizePolicy,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
+    QGridLayout, QMainWindow, QMenuBar, QPlainTextEdit,
+    QProgressBar, QPushButton, QSizePolicy, QSpacerItem,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -29,91 +29,112 @@ class Ui_MainWindow(object):
         MainWindow.setMaximumSize(QSize(300, 600))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.formLayoutWidget = QWidget(self.centralwidget)
-        self.formLayoutWidget.setObjectName(u"formLayoutWidget")
-        self.formLayoutWidget.setGeometry(QRect(0, 0, 301, 191))
-        self.formLayout = QFormLayout(self.formLayoutWidget)
+        self.gridLayout = QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.formLayout = QFormLayout()
         self.formLayout.setObjectName(u"formLayout")
-        self.formLayout.setContentsMargins(0, 0, 0, 0)
-        self.eulaBtn = QRadioButton(self.formLayoutWidget)
-        self.eulaBtn.setObjectName(u"eulaBtn")
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.eulaBtn)
+        self.formLayout.setLayout(2, QFormLayout.LabelRole, self.verticalLayout_2)
 
-        self.mcVersionDrop = QComboBox(self.formLayoutWidget)
+        self.mcVersionTxt = QPlainTextEdit(self.centralwidget)
+        self.mcVersionTxt.setObjectName(u"mcVersionTxt")
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.mcVersionTxt.sizePolicy().hasHeightForWidth())
+        self.mcVersionTxt.setSizePolicy(sizePolicy)
+        self.mcVersionTxt.setMaximumSize(QSize(16777215, 40))
+        self.mcVersionTxt.setReadOnly(True)
+
+        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.mcVersionTxt)
+
+        self.mcVersionDrop = QComboBox(self.centralwidget)
         self.mcVersionDrop.setObjectName(u"mcVersionDrop")
 
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.mcVersionDrop)
+        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.mcVersionDrop)
 
-        self.ramDrop = QComboBox(self.formLayoutWidget)
+        self.ramTxt = QPlainTextEdit(self.centralwidget)
+        self.ramTxt.setObjectName(u"ramTxt")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.ramTxt.sizePolicy().hasHeightForWidth())
+        self.ramTxt.setSizePolicy(sizePolicy1)
+        self.ramTxt.setMaximumSize(QSize(16777215, 40))
+        self.ramTxt.setReadOnly(True)
+
+        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.ramTxt)
+
+        self.ramDrop = QComboBox(self.centralwidget)
         self.ramDrop.setObjectName(u"ramDrop")
 
-        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.ramDrop)
+        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.ramDrop)
 
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setSizeConstraint(QLayout.SetMaximumSize)
-
-        self.formLayout.setLayout(6, QFormLayout.SpanningRole, self.horizontalLayout)
-
-        self.browseBtn = QPushButton(self.formLayoutWidget)
-        self.browseBtn.setObjectName(u"browseBtn")
-        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(50)
-        sizePolicy.setHeightForWidth(self.browseBtn.sizePolicy().hasHeightForWidth())
-        self.browseBtn.setSizePolicy(sizePolicy)
-
-        self.formLayout.setWidget(5, QFormLayout.SpanningRole, self.browseBtn)
-
-        self.browseTxt = QPlainTextEdit(self.formLayoutWidget)
+        self.browseTxt = QPlainTextEdit(self.centralwidget)
         self.browseTxt.setObjectName(u"browseTxt")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Maximum)
-        sizePolicy1.setHorizontalStretch(25)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.browseTxt.sizePolicy().hasHeightForWidth())
-        self.browseTxt.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Maximum)
+        sizePolicy2.setHorizontalStretch(25)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.browseTxt.sizePolicy().hasHeightForWidth())
+        self.browseTxt.setSizePolicy(sizePolicy2)
         self.browseTxt.setMinimumSize(QSize(0, 25))
+        self.browseTxt.setMaximumSize(QSize(16777215, 50))
         self.browseTxt.setBaseSize(QSize(0, 25))
         self.browseTxt.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
-        self.formLayout.setWidget(4, QFormLayout.SpanningRole, self.browseTxt)
+        self.formLayout.setWidget(6, QFormLayout.SpanningRole, self.browseTxt)
 
-        self.mcVersionTxt = QPlainTextEdit(self.formLayoutWidget)
-        self.mcVersionTxt.setObjectName(u"mcVersionTxt")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.mcVersionTxt.sizePolicy().hasHeightForWidth())
-        self.mcVersionTxt.setSizePolicy(sizePolicy2)
-        self.mcVersionTxt.setReadOnly(True)
+        self.browseBtn = QPushButton(self.centralwidget)
+        self.browseBtn.setObjectName(u"browseBtn")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(50)
+        sizePolicy3.setHeightForWidth(self.browseBtn.sizePolicy().hasHeightForWidth())
+        self.browseBtn.setSizePolicy(sizePolicy3)
+        self.browseBtn.setMaximumSize(QSize(16777215, 50))
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.mcVersionTxt)
+        self.formLayout.setWidget(8, QFormLayout.SpanningRole, self.browseBtn)
 
-        self.ramTxt = QPlainTextEdit(self.formLayoutWidget)
-        self.ramTxt.setObjectName(u"ramTxt")
-        sizePolicy2.setHeightForWidth(self.ramTxt.sizePolicy().hasHeightForWidth())
-        self.ramTxt.setSizePolicy(sizePolicy2)
-        self.ramTxt.setReadOnly(True)
+        self.crossplayBtn = QCheckBox(self.centralwidget)
+        self.crossplayBtn.setObjectName(u"crossplayBtn")
 
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.ramTxt)
+        self.formLayout.setWidget(9, QFormLayout.LabelRole, self.crossplayBtn)
+
+        self.eulaBtn = QCheckBox(self.centralwidget)
+        self.eulaBtn.setObjectName(u"eulaBtn")
+
+        self.formLayout.setWidget(9, QFormLayout.FieldRole, self.eulaBtn)
+
+
+        self.gridLayout.addLayout(self.formLayout, 0, 0, 1, 1)
+
+        self.progressBar = QProgressBar(self.centralwidget)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setValue(24)
+
+        self.gridLayout.addWidget(self.progressBar, 3, 0, 1, 1)
 
         self.createBtn = QPushButton(self.centralwidget)
         self.createBtn.setObjectName(u"createBtn")
-        self.createBtn.setGeometry(QRect(0, 490, 301, 40))
-        sizePolicy3 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Expanding)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(50)
-        sizePolicy3.setHeightForWidth(self.createBtn.sizePolicy().hasHeightForWidth())
-        self.createBtn.setSizePolicy(sizePolicy3)
-        self.progressBar = QProgressBar(self.centralwidget)
-        self.progressBar.setObjectName(u"progressBar")
-        self.progressBar.setGeometry(QRect(0, 540, 299, 26))
-        self.progressBar.setValue(24)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(50)
+        sizePolicy4.setHeightForWidth(self.createBtn.sizePolicy().hasHeightForWidth())
+        self.createBtn.setSizePolicy(sizePolicy4)
+        self.createBtn.setMaximumSize(QSize(16777215, 50))
+
+        self.gridLayout.addWidget(self.createBtn, 2, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer, 1, 0, 1, 1)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 300, 30))
+        self.menubar.setGeometry(QRect(0, 0, 300, 32))
         MainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(MainWindow)
@@ -123,12 +144,13 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Minecraft Server Maker", None))
-        self.eulaBtn.setText(QCoreApplication.translate("MainWindow", u"Accept eula", None))
-        self.browseBtn.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
-        self.browseTxt.setPlainText("")
-        self.browseTxt.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Save path", None))
         self.mcVersionTxt.setPlainText(QCoreApplication.translate("MainWindow", u"Version:", None))
         self.ramTxt.setPlainText(QCoreApplication.translate("MainWindow", u"Ram:", None))
+        self.browseTxt.setPlainText("")
+        self.browseTxt.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Save path", None))
+        self.browseBtn.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
+        self.crossplayBtn.setText(QCoreApplication.translate("MainWindow", u"Java bedrock crossplay", None))
+        self.eulaBtn.setText(QCoreApplication.translate("MainWindow", u"Accept eula", None))
         self.createBtn.setText(QCoreApplication.translate("MainWindow", u"Create", None))
     # retranslateUi
 
